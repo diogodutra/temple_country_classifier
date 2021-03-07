@@ -11,8 +11,11 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-
-export_file_url = 'https://drive.google.com/uc?export=download&id=14fMbTAr5DUmayd1eaKlu2K6_NGPsqtBr'
+# export_file_url = 'https://www.googleapis.com/drive/v3/files/1ntlwwv3Ao3kLJ_VaXgI6Gx3_01HG1Zbz?alt=media&key=AIzaSyA1CbVi3ynikmMs4KXq1xXnHSol27UaQ2U'
+# export_file_url = 'https://drive.google.com/uc?export=download&id=14fMbTAr5DUmayd1eaKlu2K6_NGPsqtBr'
+file_id = '14fMbTAr5DUmayd1eaKlu2K6_NGPsqtBr'
+key = 'ya29.a0AfH6SMDMFGLe3olCovsplDkIzli1it9rtnauKGsHkI5WXp3rCAlQI_q8lhymQQtdXI-3TSGnncQupwcoJjv92bhG8NiM0kh_tuqsEdq7rZgE7N5gltecXTs6_0mZPprhWaECH2IrUwZcX0dd1U2Nu0VfPbyH'
+export_file_url = f'https://www.googleapis.com/drive/v3/files/{file_id}?alt=media&key={key}'
 export_file_name = 'export.pkl'
 
 Port = int(os.environ.get('PORT', 50000))
