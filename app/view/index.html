@@ -1,31 +1,57 @@
-<html lang='en'>
+<!DOCTYPE html>
+<html lang='en' class=''>
+
 <head>
-  <meta charset='utf-8'>
+
+  <meta charset='UTF-8'>
+  <title>Country of the Temple</title>
+
+  <meta name="robots" content="noindex">
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  <link rel="mask-icon" type=""
+    href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111">
+  <link rel="canonical" href="https://codepen.io/siremilomir/pen/jBbQGo">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
   <link rel='stylesheet' href='../static/style.css'>
   <script src='../static/client.js'></script>
+
+
+  <script
+    src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-d8236034cc3508e70b0763f2575a8bb5850f9aea541206ce56704c013047d712.js"></script>
+  <script
+    src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-bb9a2ba1f03f6147732cb3cd52ac86c6b24524aa87a05ed0b726f11e46d7e277.js"></script>
+  <script
+    src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
 </head>
+
 <body>
-<div>
-  <div class='center'>
-    <div class='title'>Temple Country</div>
-    <p>
-      Let me guess from which country a temple is given its picture. 
-    </p>
-    <div class='content'>
-      <div class='no-display'>
-        <input id='file-input'
-               class='no-display'
-               type='file'
-               name='file'
-               accept='image/*'
-               onchange='showPicked(this)'>
+  <div class="container">
+    <h1>Country of the Temple
+      <small>choose a photo and let me guess it</small>
+    </h1>
+    <div class="avatar-upload">
+      <div class="avatar-edit">
+        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" onchange='showPicked(this)'
+          value='https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg')
+          />
+          <!-- src='https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg' -->
+          
+        <label for="imageUpload"></label>
       </div>
-      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-      <div class='upload-label'>
-        <label id='upload-label'>No file chosen</label>
-      </div>
-      <div>
-        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+      <div class="avatar-preview">
+        <!-- <div id="imagePreview"
+          style="background-image: url(https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg);">
+        </div> -->
+        <div id="imagePreview"></div>
       </div>
       <div class='analyze'>
         <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
@@ -35,6 +61,20 @@
       </div>
     </div>
   </div>
-</div>
+
+
+
+  <script
+    src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdpn.io/cp/internal/boomboom/pen.js?key=pen.js-2bcf46f1-b129-b1ba-94a7-f96d8a8eacf2"
+    crossorigin></script>
+    <script> 
+        // window.onload = function exampleFunction() { 
+        //     console.log('The Script will load now.');
+        load_default_image(); 
+        // } 
+    </script> 
 </body>
+
 </html>
