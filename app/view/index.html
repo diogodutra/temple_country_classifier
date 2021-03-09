@@ -1,40 +1,170 @@
-<html lang='en'>
+
+<!DOCTYPE html>
+<html lang='en' class=''>
+
 <head>
-  <meta charset='utf-8'>
+
+  <meta charset='UTF-8'>
+  <title>CodePen Demo</title>
+
+  <meta name="robots" content="noindex">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+  <link rel="canonical" href="https://codepen.io/siremilomir/pen/jBbQGo">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
   <link rel='stylesheet' href='../static/style.css'>
   <script src='../static/client.js'></script>
+  <!-- <script src='../static/other.js'></script> -->
+
+  <style class="INLINE_PEN_STYLESHEET_ID">
+    @charset "UTF-8";
+
+body {
+  background: whitesmoke;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+  margin: 20px 0 20px;
+}
+
+h1 small {
+  display: block;
+  font-size: 20px;
+  padding-top: 16px;
+  color: gray;
+  margin: 10px auto;
+}
+
+.avatar-upload {
+  position: relative;
+  max-width: 305px;
+  margin: 50px auto;
+}
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 12px;
+  z-index: 1;
+  top: 10px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 51px;
+  height: 51px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit input + label:after {
+  content: "";
+  font-family: "FontAwesome";
+  color: #757575;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  font-size: 1.6rem;
+}
+
+.avatar-upload .avatar-preview {
+  width: 288px;
+  height: 288px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+  </style>
+
+  
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-d8236034cc3508e70b0763f2575a8bb5850f9aea541206ce56704c013047d712.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-bb9a2ba1f03f6147732cb3cd52ac86c6b24524aa87a05ed0b726f11e46d7e277.js"></script>
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
 </head>
+
 <body>
-<div>
-  <div class='center'>
-    <div class='title'>Temple Country</div>
-    <p>
-      Let me guess from which country a temple is given its picture. 
-    </p>
-    <div class='content'>
-      <div class='no-display'>
-        <input id='file-input'
-               class='no-display'
-               type='file'
-               name='file'
-               accept='image/*'
-               onchange='showPicked(this)'>
-      </div>
-      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-      <div class='upload-label'>
-        <label id='upload-label'>No file chosen</label>
-      </div>
-      <div>
-        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-      </div>
-      <div class='analyze'>
-        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-      </div>
-      <div class='result-label'>
-        <label id='result-label'></label>
-      </div>
+  <div class="container">
+    <h1>Country of the Temple 
+        <small>choose a photo and let me guess it</small>
+    </h1>
+    <div class="avatar-upload">
+        <div class="avatar-edit">
+            <!-- <input id='file-input' class='no-display' type='file' name='file' accept='image/*'
+            onchange='showPicked(this)'> -->
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" onchange='showPicked(this)'
+            src='url(https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg)'
+            />            
+            <label for="imageUpload"></label>
+            <!-- <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button> -->
+        </div>
+        <div class="avatar-preview">
+            <!-- <div id="imagePreview"
+            style="background-image: url(https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg);">
+            </div> -->
+            <div id="imagePreview">
+            </div>
+          <!-- <img id='image-picked' class='no-display' alt='Chosen Image' height='200'> -->
+        </div>
+        <div class='analyze'>
+          <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+        </div>
+        <div class='result-label'>
+          <label id='result-label'></label>
+        </div>
+
+        
+        <!-- <div class='no-display'>
+            <input id='file-input' class='no-display' type='file' name='file' accept='image/*'
+              onchange='showPicked(this)'>
+          </div>
+          <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+          <div class='analyze'>
+            <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+        </div> -->
     </div>
-  </div>
 </div>
+
+
+  
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script  src="https://cdpn.io/cp/internal/boomboom/pen.js?key=pen.js-2bcf46f1-b129-b1ba-94a7-f96d8a8eacf2" crossorigin></script>
 </body>
+
 </html>
