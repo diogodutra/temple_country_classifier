@@ -17,7 +17,7 @@ function analyze() {
     alert("Please select a file to analyze!");
   } else {
     $('#result-label').hide();
-    el("result-label").innerHTML = `Analyzing... please wait for 10 seconds`;
+    el("result-label").innerHTML = `Analyzing... please wait`;
     $('#result-label').fadeIn(3000);
     var xhr = new XMLHttpRequest();
     var loc = window.location;
