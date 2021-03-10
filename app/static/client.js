@@ -16,9 +16,6 @@ function analyze() {
   if (uploadFiles.length !== 1){
     alert("Please select a file to analyze!");
   } else {
-    console.log('oi!')
-    // el("analyze-button").innerHTML = "Analyzing...";
-    // el("analyze-button").style.backgroundColor = "lightgray";
     el("result-label").innerHTML = `Analyzing...`;
     var xhr = new XMLHttpRequest();
     var loc = window.location;
@@ -32,8 +29,6 @@ function analyze() {
         var response = JSON.parse(e.target.responseText);
         el("result-label").innerHTML = `Country: ${response["result"]}`;
       }
-      el("analyze-button").innerHTML = "Analyze";
-      el("analyze-button").style.backgroundColor = '#7052CB';
     };
   
     var fileData = new FormData();
