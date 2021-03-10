@@ -16,7 +16,9 @@ function analyze() {
   if (uploadFiles.length !== 1){
     alert("Please select a file to analyze!");
   } else {
-    el("result-label").innerHTML = `Analyzing...`;
+    $('#result-label').hide();
+    el("result-label").innerHTML = `Analyzing... please wait for 10 seconds`;
+    $('#result-label').fadeIn(3000);
     var xhr = new XMLHttpRequest();
     var loc = window.location;
     xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,
@@ -27,7 +29,9 @@ function analyze() {
     xhr.onload = function(e) {
       if (this.readyState === 4) {
         var response = JSON.parse(e.target.responseText);
+        $('#result-label').hide();
         el("result-label").innerHTML = `Country: ${response["result"]}`;
+        $('#result-label').fadeIn(650);
       }
     };
   
