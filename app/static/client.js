@@ -1,30 +1,15 @@
 var el = x => document.getElementById(x);
 
-function showPicker() {
-  el("imageUpload").click();
-}
-
 function showPicked(input) {
   var reader = new FileReader();
   reader.onload = function(e) {
-    // el("image-picked").src = e.target.result;
-    // el("image-picked").className = "";
     $('#imagePreview').hide();
-    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
     $('#imagePreview').fadeIn(650);
   };
   reader.readAsDataURL(input.files[0]);
 }
 
-function load_default_image() {
-  // el("imageUpload").files[0] = url('https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg')
-  // showPicked(url('https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg'))
-  el('imageUpload').attr('src', 'https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg');
-  // el('imageUpload').attr('value', 'https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg');
-  // el('imagePreview').attr('src', 'https://www.ar.jal.co.jp/world/en/guidetojapan/howto/culture/how-to-visit-a-temple/img/img_culture5-1.jpg');
-  
-  // alert("Ola!");
-}
 function analyze() {
   var uploadFiles = el("imageUpload").files;
   if (uploadFiles.length !== 1){
