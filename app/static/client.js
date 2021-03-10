@@ -8,6 +8,7 @@ function showPicked(input) {
     $('#imagePreview').fadeIn(650);
   };
   reader.readAsDataURL(input.files[0]);
+  analyze();
 }
 
 function analyze() {
@@ -15,6 +16,7 @@ function analyze() {
   if (uploadFiles.length !== 1){
     alert("Please select a file to analyze!");
   } else {
+    console.log('oi!')
     el("analyze-button").innerHTML = "Analyzing...";
     el("analyze-button").style.backgroundColor = "lightgray";
     var xhr = new XMLHttpRequest();
