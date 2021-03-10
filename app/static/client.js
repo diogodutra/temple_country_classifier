@@ -8,6 +8,7 @@ function showPicked(input) {
     $('#imagePreview').fadeIn(650);
   };
   reader.readAsDataURL(input.files[0]);
+  analyze();
 }
 
 function analyze() {
@@ -15,8 +16,10 @@ function analyze() {
   if (uploadFiles.length !== 1){
     alert("Please select a file to analyze!");
   } else {
-    el("analyze-button").innerHTML = "Analyzing...";
-    el("analyze-button").style.backgroundColor = "lightgray";
+    console.log('oi!')
+    // el("analyze-button").innerHTML = "Analyzing...";
+    // el("analyze-button").style.backgroundColor = "lightgray";
+    el("result-label").innerHTML = `Analyzing...`;
     var xhr = new XMLHttpRequest();
     var loc = window.location;
     xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,

@@ -116,17 +116,20 @@ button:focus {
   cursor: pointer;
   font-weight: normal;
   transition: all 0.2s ease-in-out;
+  background-color: #7052CB;
 }
 
 .avatar-upload .avatar-edit input+label:hover {
   background: #f1f1f1;
   border-color: #d6d6d6;
+  background-color: #9078da;
 }
 
 .avatar-upload .avatar-edit input+label:after {
   content: "";
   font-family: "FontAwesome";
   color: #757575;
+  color: #d6d6d6;
   position: absolute;
   top: 12px;
   left: 0;
